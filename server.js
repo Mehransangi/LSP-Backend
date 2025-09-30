@@ -9,19 +9,6 @@ import uniNameRoutes from "./routes/uniNameRoutes.js";
 import scholarshipRoutes from "./routes/scholarshipRoutes.js";
 import uNameTagRoutes from "./routes/uNameTagRoutes.js";
 import cors from "cors";
-import multer from "multer";
-import path from "path";
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "/tmp"); // writable in Lambda/Vercel
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  }
-});
-
-const upload = multer({ storage });
 
 const app = express();
 
